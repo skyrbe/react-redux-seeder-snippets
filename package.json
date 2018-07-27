@@ -1,0 +1,20 @@
+{
+  "name": "react-redux-seeder-snippets",
+  "main": "./lib/react-redux-seeder-snippets",
+  "version": "0.0.0",
+  "description": "Seeder Project react redux snippets",
+  "keywords": [
+    "react",
+    "redux",
+    "atom",
+    "snippet",
+    "snippets",
+    "seeder"
+  ],
+  "repository": "https://github.com/skyrbe/react-redux-seeder-snippets",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,62 @@
+'.source.js':
+  'Sakha:React:Reducer':
+    'prefix': 'seederduck'
+    'description': 'Simple Reducer for React Seeder'
+    'leftLabelHTML': 'reducer'
+    'rightLabelHTML': 'Redux'
+    'body': """
+        const currentReducer = '${1:REDUCER_NAME}';
+        export const ${2:ACTION}_REQUESTED = `${currentReducer}/${2:ACTION}_REQUESTED`;
+        export const ${2:ACTION}_SUCCESS = `${currentReducer}/${2:ACTION}_SUCCESS`;
+        export const ${2:ACTION}_FAILURE = `${currentReducer}/${2:ACTION}_FAILURE`;
+
+        const initialState = {
+          loading: false,
+          loaded: false,
+          error: false,
+          data: null
+        };
+
+        export default function(state = initialState, action) {
+          switch (action.type) {
+            case ${2:ACTION}_REQUESTED:
+              return {
+                ...state,
+                loading: true,
+                loaded: false,
+                error: false
+              };
+            }
+            case ${2:ACTION}_SUCCESS:
+              return {
+                ...state,
+                loading: false,
+                loaded: true,
+                error: false,
+                data: action.payload
+              };
+            }
+            case ${2:ACTION}_FAILURE:
+              return {
+                ...state,
+                loading: false,
+                loaded: true,
+                error: true
+              };
+            }
+            default:
+              return state;
+          }
+        }
+
+        export const ${1:REDUCER_NAME} = (data) => {
+          const headers = { has_auth_token: 0 };
+          return {
+            types: [${2:ACTION}_REQUESTED, ${2:ACTION}_SUCCESS, ${2:ACTION}_FAILURE],
+            promise: client => client.${3:REQUEST_TYPE}('${4:API_METHOD_INVOCATION}', {
+              headers,
+              data
+            })
+          };
+        };
+    """
