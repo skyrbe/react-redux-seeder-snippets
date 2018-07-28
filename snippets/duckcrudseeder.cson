@@ -182,53 +182,53 @@
           }
         }
 
-        export const ${3:ACTION} = () => {
+        export const ${3:ACTION} = (pageNo, itemsPerPage) => {
           const headers = { has_auth_token: 1 };
           return {
             types: [GET_ALL_${2:ACTION}S_REQUESTED, GET_ALL_${2:ACTION}S_SUCCESS, GET_ALL_${2:ACTION}S_FAILURE],
-            promise: client => client.get('${4:API_METHOD_INVOCATION}', {
+            promise: client => client.get(`${4:API_METHOD_INVOCATION}?pageno=${pageNo}&itemsperpage=${itemsPerPage}`, {
               headers,
             })
           };
         };
 
-        export const ${5:ACTION} = () => {
+        export const ${5:ACTION} = (id) => {
           const headers = { has_auth_token: 1 };
           return {
             types: [GET_${2:ACTION}_REQUESTED, GET_${2:ACTION}_SUCCESS, GET_${2:ACTION}_FAILURE],
-            promise: client => client.get('${6:API_METHOD_INVOCATION}', {
+            promise: client => client.get(`${6:API_METHOD_INVOCATION}?${7:EXPECTED_KEY}=${id}`, {
               headers,
             })
           };
         };
 
-        export const ${7:ACTION} = (data) => {
+        export const ${8:ACTION} = (data) => {
           const headers = { has_auth_token: 1 };
           return {
             types: [PUT_${2:ACTION}_REQUESTED, PUT_${2:ACTION}_SUCCESS, PUT_${2:ACTION}_FAILURE],
-            promise: client => client.put('${8:API_METHOD_INVOCATION}', {
+            promise: client => client.put('${9:API_METHOD_INVOCATION}', {
               headers,
               data
             })
           };
         };
 
-        export const ${9:ACTION} = (data) => {
+        export const ${10:ACTION} = (data) => {
           const headers = { has_auth_token: 1 };
           return {
             types: [DELETE_${2:ACTION}_REQUESTED, DELETE_${2:ACTION}_SUCCESS, DELETE_${2:ACTION}_FAILURE],
-            promise: client => client.del('${10:API_METHOD_INVOCATION}', {
+            promise: client => client.del('${11:API_METHOD_INVOCATION}', {
               headers,
               data
             })
           };
         };
 
-        export const ${11:ACTION} = (data) => {
+        export const ${12:ACTION} = (data) => {
           const headers = { has_auth_token: 1 };
           return {
             types: [ADD_${2:ACTION}_REQUESTED, ADD_${2:ACTION}_SUCCESS, ADD_${2:ACTION}_FAILURE],
-            promise: client => client.post('${12:API_METHOD_INVOCATION}', {
+            promise: client => client.post('${13:API_METHOD_INVOCATION}', {
               headers,
               data
             })
