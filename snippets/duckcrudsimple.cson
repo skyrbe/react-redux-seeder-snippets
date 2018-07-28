@@ -1,6 +1,6 @@
 '.source.js':
   'Sakha:React:Reducer':
-    'prefix': 'duckcrud'
+    'prefix': 'duckcrudsimple'
     'description': 'CRUD Reducer for React Seeder. Use this when list and details are on 2 separate pages (or when there are no potential race conditions).'
     'leftLabelHTML': 'reducer-crud-simple'
     'rightLabelHTML': 'Seeder:Redux'
