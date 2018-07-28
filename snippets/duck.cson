@@ -1,9 +1,9 @@
 '.source.js':
   'Sakha:React:Reducer':
-    'prefix': 'seederduck'
+    'prefix': 'duck'
     'description': 'Simple Reducer for React Seeder'
     'leftLabelHTML': 'reducer'
-    'rightLabelHTML': 'Redux'
+    'rightLabelHTML': 'Seeder:Redux'
     'body': """
         const currentReducer = '${1:REDUCER_NAME}';
         export const ${2:ACTION}_REQUESTED = `${currentReducer}/${2:ACTION}_REQUESTED`;

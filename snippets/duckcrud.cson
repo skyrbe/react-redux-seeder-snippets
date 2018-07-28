@@ -1,0 +1,237 @@
+'.source.js':
+  'Sakha:React:Reducer':
+    'prefix': 'duckcrud'
+    'description': 'CRUD Reducer for React Seeder. It contains different loading/loaded/error/data key value pairs, one pair for each operations. Use this when you think there maybe potiential race conditions.'
+    'leftLabelHTML': 'reducer-crud'
+    'rightLabelHTML': 'Seeder:Redux'
+    'body': """
+        const currentReducer = '${1:REDUCER_NAME}';
+
+        export const GET_ALL_${2:ACTION}S_REQUESTED = `${currentReducer}/GET_ALL_${2:ACTION}S_REQUESTED`;
+        export const GET_ALL_${2:ACTION}S_SUCCESS = `${currentReducer}/GET_ALL_${2:ACTION}S_SUCCESS`;
+        export const GET_ALL_${2:ACTION}S_FAILURE = `${currentReducer}/GET_ALL_${2:ACTION}S_FAILURE`;
+
+        export const ADD_${2:ACTION}_REQUESTED = `${currentReducer}/ADD_${2:ACTION}_REQUESTED`;
+        export const ADD_${2:ACTION}_SUCCESS = `${currentReducer}/ADD_${2:ACTION}_SUCCESS`;
+        export const ADD_${2:ACTION}_FAILURE = `${currentReducer}/ADD_${2:ACTION}_FAILURE`;
+
+        export const GET_${2:ACTION}_REQUESTED = `${currentReducer}/GET_${2:ACTION}_REQUESTED`;
+        export const GET_${2:ACTION}_SUCCESS = `${currentReducer}/GET_${2:ACTION}_SUCCESS`;
+        export const GET_${2:ACTION}_FAILURE = `${currentReducer}/GET_${2:ACTION}_FAILURE`;
+
+        export const PUT_${2:ACTION}_REQUESTED = `${currentReducer}/PUT_${2:ACTION}_REQUESTED`;
+        export const PUT_${2:ACTION}_SUCCESS = `${currentReducer}/PUT_${2:ACTION}_SUCCESS`;
+        export const PUT_${2:ACTION}_FAILURE = `${currentReducer}/PUT_${2:ACTION}_FAILURE`;
+
+        export const DELETE_${2:ACTION}_REQUESTED = `${currentReducer}/DELETE_${2:ACTION}_REQUESTED`;
+        export const DELETE_${2:ACTION}_SUCCESS = `${currentReducer}/DELETE_${2:ACTION}_SUCCESS`;
+        export const DELETE_${2:ACTION}_FAILURE = `${currentReducer}/DELETE_${2:ACTION}_FAILURE`;
+
+        const initialState = {
+          getAllLoading: false,
+          getAllLoaded: false,
+          getAllError: false,
+          getAllData: null,
+          getLoading: false,
+          getLoaded: false,
+          getError: false,
+          activeData: null,
+          putLoading: false,
+          putLoaded: false,
+          putError: false,
+          putData: null,
+          deleteLoading: false,
+          deleteLoaded: false,
+          deleteError: false,
+          deleteData: null,
+          addLoading: false,
+          addLoaded: false,
+          addError: false,
+          addData: null
+        };
+
+        export default function(state = initialState, action) {
+          switch (action.type) {
+            case GET_ALL_${2:ACTION}S_REQUESTED:
+              return {
+                ...state,
+                getAllLoading: true,
+                getAllLoaded: false,
+                getAllError: false
+              };
+            }
+            case GET_ALL_${2:ACTION}S_SUCCESS:
+              return {
+                ...state,
+                getAllLoading: false,
+                getAllLoaded: true,
+                getAllError: false,
+                getAllData: action.payload
+              };
+            }
+            case GET_ALL_${2:ACTION}S_FAILURE:
+              return {
+                ...state,
+                getAllLoading: false,
+                getAllLoaded: true,
+                getAllError: true
+              };
+            }
+            case GET_${2:ACTION}_REQUESTED:
+              return {
+                ...state,
+                getLoading: true,
+                getLoaded: false,
+                getError: false
+              };
+            }
+            case GET_${2:ACTION}_SUCCESS:
+              return {
+                ...state,
+                getLoading: false,
+                getLoaded: true,
+                getError: false,
+                activeData: action.payload
+              };
+            }
+            case GET_${2:ACTION}_FAILURE:
+              return {
+                ...state,
+                getLoading: false,
+                getLoaded: true,
+                getError: true
+              };
+            }
+            case PUT_${2:ACTION}_REQUESTED:
+              return {
+                ...state,
+                putLoading: true,
+                putLoaded: false,
+                putError: false
+              };
+            }
+            case PUT_${2:ACTION}_SUCCESS:
+              return {
+                ...state,
+                putLoading: false,
+                putLoaded: true,
+                putError: false,
+                putData: action.payload
+              };
+            }
+            case PUT_${2:ACTION}_FAILURE:
+              return {
+                ...state,
+                putLoading: false,
+                putLoaded: true,
+                putError: true
+              };
+            }
+            case DELETE_${2:ACTION}_REQUESTED:
+              return {
+                ...state,
+                deleteLoading: true,
+                deleteLoaded: false,
+                deleteError: false
+              };
+            }
+            case DELETE_${2:ACTION}_SUCCESS:
+              return {
+                ...state,
+                deleteLoading: false,
+                deleteLoaded: true,
+                deleteError: false,
+                deleteData: action.payload
+              };
+            }
+            case DELETE_${2:ACTION}_FAILURE:
+              return {
+                ...state,
+                deleteLoading: false,
+                deleteLoaded: true,
+                deleteError: true
+              };
+            }
+            case ADD_${2:ACTION}_REQUESTED:
+              return {
+                ...state,
+                createLoading: true,
+                createLoaded: false,
+                createError: false
+              };
+            }
+            case ADD_${2:ACTION}_SUCCESS:
+              return {
+                ...state,
+                createLoading: false,
+                createLoaded: true,
+                createError: false,
+                createData: action.payload
+              };
+            }
+            case ADD_${2:ACTION}_FAILURE:
+              return {
+                ...state,
+                createLoading: false,
+                createLoaded: true,
+                createError: true
+              };
+            }
+            default:
+              return state;
+          }
+        }
+
+        export const getAll${3:Action} = (pageNo, itemsPerPage) => {
+          const headers = { has_auth_token: 1 };
+          return {
+            types: [GET_ALL_${2:ACTION}S_REQUESTED, GET_ALL_${2:ACTION}S_SUCCESS, GET_ALL_${2:ACTION}S_FAILURE],
+            promise: client => client.get(`${4:API_METHOD_INVOCATION}?pageno=${pageNo}&itemsperpage=${itemsPerPage}`, {
+              headers,
+            })
+          };
+        };
+
+        export const get${3:Action} = (id) => {
+          const headers = { has_auth_token: 1 };
+          return {
+            types: [GET_${2:ACTION}_REQUESTED, GET_${2:ACTION}_SUCCESS, GET_${2:ACTION}_FAILURE],
+            promise: client => client.get(`${5:API_METHOD_INVOCATION}?${7:EXPECTED_KEY}=${id}`, {
+              headers,
+            })
+          };
+        };
+
+        export const put${3:Action} = (data) => {
+          const headers = { has_auth_token: 1 };
+          return {
+            types: [PUT_${2:ACTION}_REQUESTED, PUT_${2:ACTION}_SUCCESS, PUT_${2:ACTION}_FAILURE],
+            promise: client => client.put('${6:API_METHOD_INVOCATION}', {
+              headers,
+              data
+            })
+          };
+        };
+
+        export const delete${3:Action} = (data) => {
+          const headers = { has_auth_token: 1 };
+          return {
+            types: [DELETE_${2:ACTION}_REQUESTED, DELETE_${2:ACTION}_SUCCESS, DELETE_${2:ACTION}_FAILURE],
+            promise: client => client.del('${7:API_METHOD_INVOCATION}', {
+              headers,
+              data
+            })
+          };
+        };
+
+        export const add${3:Action} = (data) => {
+          const headers = { has_auth_token: 1 };
+          return {
+            types: [ADD_${2:ACTION}_REQUESTED, ADD_${2:ACTION}_SUCCESS, ADD_${2:ACTION}_FAILURE],
+            promise: client => client.post('${8:API_METHOD_INVOCATION}', {
+              headers,
+              data
+            })
+          };
+        };
+    """
