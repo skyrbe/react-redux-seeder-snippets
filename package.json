@@ -1,7 +1,7 @@
 {
   "name": "react-redux-seeder-snippets",
   "main": "./lib/react-redux-seeder-snippets",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Seeder Project react redux snippets",
   "keywords": [
     "react",
