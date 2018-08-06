@@ -1,0 +1,124 @@
+'.source.js, .source.jsx':
+  'Sakha:Redux:Form':
+    'prefix': 'form'
+    'description': 'Simple Redux-Form with basic dependencies imported'
+    'leftLabelHTML': 'ReduxForm'
+    'rightLabelHTML': 'Seeder:Redux'
+    'body': """
+        import React from 'react';
+        import { reduxForm } from 'redux-form';
+        import { ${1:validationFields} } from '../common/FormValidation';
+        import Textfield from '../common/Textfield';
+        import {ERROR_LABEL, APP_CONFIG} from '../../constants';
+
+        const ${2:ComponentName} = (props) => {
+          const {
+            handleSubmit,
+            loading
+          } = props;
+
+          return (
+            <form onSubmit={handleSubmit}>
+
+            </form>
+          );
+        };
+
+        export default (reduxForm({
+          form: '${3:formIdentifier}' // a unique identifier for this form
+        })(${2:ComponentName}));
+    """
+  'Sakha:ReduxForm:TextField':
+    'prefix': 'textfield'
+    'description': 'Creates a Textfield component based on the component found in src/components/common/Textfield'
+    'leftLabelHTML': 'ReduxFormField'
+    'rightLabelHTML': 'Seeder:Redux'
+    'body': """
+        <Textfield
+          name="${1:fieldName}"
+          type="${2:inputType}"
+          label="${3:Placeholder Label}"
+          errorLabel="ERROR_LABEL.${4:LABEL}"
+          validate={[${5:validations}]}
+        />
+    """
+  'Sakha:ReduxForm:FormSubmit':
+    'prefix': 'submit'
+    'description': 'Creates a submit button for the redux form'
+    'leftLabelHTML': 'ReduxFormSubmit'
+    'rightLabelHTML': 'Seeder:Redux'
+    'body': """
+        <button
+          disabled={loading}
+          type="submit"
+        >
+          ${1:buttonText}
+        </button>
+    """
+  'Sakha:React:Container':
+    'prefix': 'container'
+    'description': 'Creates a default container'
+    "leftLabelHTML": "container"
+    "rightLabelHTML": "Seeder:React"
+    'body': """
+        import React, { Component } from 'react';
+        import PropTypes from 'prop-types';
+        import { connect } from 'react-redux';
+        import { bindActionCreators } from 'redux';
+
+        class ${1:Class} extends Component {
+          constructor(props) {
+            super(props);
+            this.state = {};
+          }
+          render() {
+            return (
+              <div className="${2:class-name}">
+                ${3:content}
+              </div>
+            );
+          }
+        }
+
+        function mapStateToProps({}){
+          return {};
+        }
+        function mapDispatchToProps(dispatch){
+          return bindActionCreators({},dispatch);
+        }
+        export default connect (mapStateToProps,mapDispatchToProps)(${1:Class});
+    """
+  'Sakha:React:Component':
+    'prefix': 'component'
+    'description': 'Creates a default stateful component'
+    "leftLabelHTML": "component"
+    "rightLabelHTML": "Seeder:React"
+    'body': """
+        import React, { Component } from 'react';
+
+        export default class ${1:Class} extends Component {
+          render() {
+            return (
+              <div className=${2:className}>
+                  ${3:content}
+              </div>
+            );
+          }
+        }
+    """
+  'Sakha:React:StatelessComponent':
+    'prefix': 'statelesscomponent'
+    'description': 'Creates a default stateless component'
+    "leftLabelHTML": "component"
+    "rightLabelHTML": "Seeder:React"
+    'body': """
+        import React from 'react';
+
+        const ${1:ComponentName} = (props) => {
+          return (
+            <div className="${2:className}">
+                ${3:content}
+            </div>
+          );
+        }
+    """
