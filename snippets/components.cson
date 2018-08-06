@@ -99,7 +99,7 @@
         export default class ${1:Class} extends Component {
           render() {
             return (
-              <div className=${2:className}>
+              <div className="${2:className}">
                 ${3:content}
               </div>
             );
@@ -114,9 +114,9 @@
     'body': """
         import React from 'react';
 
-        const ${1:ComponentName} = (props) => {
+        const ${1:ComponentName} = (${2:props}) => {
           return (
-            <div className="${2:className}">
+            <div className="${3:className}">
               ${3:content}
             </div>
           );
