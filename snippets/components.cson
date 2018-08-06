@@ -100,7 +100,7 @@
           render() {
             return (
               <div className=${2:className}>
-                  ${3:content}
+                ${3:content}
               </div>
             );
           }
@@ -117,8 +117,10 @@
         const ${1:ComponentName} = (props) => {
           return (
             <div className="${2:className}">
-                ${3:content}
+              ${3:content}
             </div>
           );
         }
+
+        export default ${1:ComponentName};
     """
