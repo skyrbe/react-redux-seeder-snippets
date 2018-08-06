@@ -117,7 +117,7 @@
         const ${1:ComponentName} = (${2:props}) => {
           return (
             <div className="${3:className}">
-              ${3:content}
+              ${4:content}
             </div>
           );
         }
