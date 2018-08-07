@@ -42,6 +42,22 @@
           validate={[${5:validations}]}
         />
     """
+  'Sakha:ReduxForm:RadioGroup':
+    'prefix': 'radiogroup'
+    'description': 'Creates a RadioGroup component based on the component found in src/components/common/Radio'
+    'leftLabelHTML': 'ReduxFormField'
+    'rightLabelHTML': 'Seeder:Redux'
+    'body': """
+        <RadioGroup
+          name="${1:fieldName}"
+          label="${2:Placeholder Label}"
+          errorLabel="${3:Required Error Label} "
+          externalLabel={`${props.form}`}
+          validate={[${4:validations}]}
+          customClass="${5:customParentClasses}"
+          options={${6:radioOptions}}
+        />
+    """
   'Sakha:ReduxForm:FormSubmit':
     'prefix': 'submit'
     'description': 'Creates a submit button for the redux form'
