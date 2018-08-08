@@ -99,19 +99,6 @@
           validate={[${5:validations}]}
         />
     """
-  'Sakha:ReduxForm:TextArea':
-    'prefix': 'textarea'
-    'description': 'Creates a TextArea component based on the component found in src/components/common/formElements/TextArea'
-    'leftLabelHTML': 'ReduxFormField'
-    'rightLabelHTML': 'Seeder:Redux'
-    'body': """
-        <Textarea
-          name="${1:fieldName}"
-          label="${2:Placeholder Label}"
-          errorLabel="${3:Error Label} "
-          validate={[${4:validations}]}
-        />
-    """
   'Sakha:ReduxForm:FormSubmit':
     'prefix': 'submit'
     'description': 'Creates a submit button for the redux form'
