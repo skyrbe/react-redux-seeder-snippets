@@ -30,7 +30,7 @@
     """
   'Sakha:ReduxForm:TextField':
     'prefix': 'textfield'
-    'description': 'Creates a Textfield component based on the component found in src/components/common/Textfield'
+    'description': 'Creates a Textfield component based on the component found in src/components/common/formElements/Textfield'
     'leftLabelHTML': 'ReduxFormField'
     'rightLabelHTML': 'Seeder:Redux'
     'body': """
@@ -44,7 +44,7 @@
     """
   'Sakha:ReduxForm:RadioGroup':
     'prefix': 'radiogroup'
-    'description': 'Creates a RadioGroup component based on the component found in src/components/common/Radio'
+    'description': 'Creates a RadioGroup component based on the component found in src/components/common/formElements/Radio'
     'leftLabelHTML': 'ReduxFormField'
     'rightLabelHTML': 'Seeder:Redux'
     'body': """
@@ -56,6 +56,47 @@
           validate={[${4:validations}]}
           customClass="${5:customParentClasses}"
           options={${6:radioOptions}}
+        />
+    """
+  'Sakha:ReduxForm:Checkbox':
+    'prefix': 'checkbox'
+    'description': 'Creates a Checkbox component based on the component found in src/components/common/formElements/Checkbox'
+    'leftLabelHTML': 'ReduxFormField'
+    'rightLabelHTML': 'Seeder:Redux'
+    'body': """
+        <Checkbox
+          name="${1:fieldName}"
+          label="${2:Placeholder Label}"
+          errorLabel="${3:Error Label} "
+          validate={[${4:validations}]}
+        />
+    """
+  'Sakha:ReduxForm:Select':
+    'prefix': 'select'
+    'description': 'Creates a Select component based on the component found in src/components/common/formElements/SelectBox'
+    'leftLabelHTML': 'ReduxFormField'
+    'rightLabelHTML': 'Seeder:Redux'
+    'body': """
+        <SelectBox
+          name="${1:fieldName}"
+          errorLabel="${2:Error Label} "
+          options={${3:listOfOptions}}
+          defaultLabel="${4:Default Label}"
+          validate={[${5:validations}]}
+        />
+    """
+  'Sakha:ReduxForm:DateTimepicker':
+    'prefix': 'datepicker'
+    'description': 'Creates a DateTimepicker component based on the component found in src/components/common/formElements/ReactWidgets/DateTimePicker'
+    'leftLabelHTML': 'ReduxFormField'
+    'rightLabelHTML': 'Seeder:Redux'
+    'body': """
+        <DateTimepicker
+          name="${1:fieldName}"
+          label="${2:Placeholder Label}"
+          errorLabel="${3:Error Label} "
+          showTime={${4:timeBoolean}}
+          validate={[${5:validations}]}
         />
     """
   'Sakha:ReduxForm:FormSubmit':
