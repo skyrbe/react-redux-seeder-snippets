@@ -10,27 +10,23 @@
         import { ${1:validationFields} } from '../common/FormValidation';
         import Textfield from '../common/Textfield';
         import {ERROR_LABEL, APP_CONFIG} from '../../constants';
-
         const ${2:ComponentName} = (props) => {
           const {
             handleSubmit,
             loading
           } = props;
-
           return (
             <form onSubmit={handleSubmit}>
-
             </form>
           );
         };
-
         export default (reduxForm({
           form: '${3:formIdentifier}' // a unique identifier for this form
         })(${2:ComponentName}));
     """
   'Sakha:ReduxForm:TextField':
     'prefix': 'textfield'
-    'description': 'Creates a Textfield component based on the component found in src/components/common/formElements/Textfield'
+    'description': 'Creates a Textfield component based on the component found in src/components/common/Textfield'
     'leftLabelHTML': 'ReduxFormField'
     'rightLabelHTML': 'Seeder:Redux'
     'body': """
@@ -44,7 +40,7 @@
     """
   'Sakha:ReduxForm:RadioGroup':
     'prefix': 'radiogroup'
-    'description': 'Creates a RadioGroup component based on the component found in src/components/common/formElements/Radio'
+    'description': 'Creates a RadioGroup component based on the component found in src/components/common/Radio'
     'leftLabelHTML': 'ReduxFormField'
     'rightLabelHTML': 'Seeder:Redux'
     'body': """
@@ -56,47 +52,6 @@
           validate={[${4:validations}]}
           customClass="${5:customParentClasses}"
           options={${6:radioOptions}}
-        />
-    """
-  'Sakha:ReduxForm:Checkbox':
-    'prefix': 'checkbox'
-    'description': 'Creates a Checkbox component based on the component found in src/components/common/formElements/Checkbox'
-    'leftLabelHTML': 'ReduxFormField'
-    'rightLabelHTML': 'Seeder:Redux'
-    'body': """
-        <Checkbox
-          name="${1:fieldName}"
-          label="${2:Placeholder Label}"
-          errorLabel="${3:Error Label} "
-          validate={[${4:validations}]}
-        />
-    """
-  'Sakha:ReduxForm:Select':
-    'prefix': 'select'
-    'description': 'Creates a Select component based on the component found in src/components/common/formElements/SelectBox'
-    'leftLabelHTML': 'ReduxFormField'
-    'rightLabelHTML': 'Seeder:Redux'
-    'body': """
-        <SelectBox
-          name="${1:fieldName}"
-          errorLabel="${2:Error Label} "
-          options={${3:listOfOptions}}
-          defaultLabel="${4:Default Label}"
-          validate={[${5:validations}]}
-        />
-    """
-  'Sakha:ReduxForm:DateTimepicker':
-    'prefix': 'datepicker'
-    'description': 'Creates a DateTimepicker component based on the component found in src/components/common/formElements/ReactWidgets/DateTimePicker'
-    'leftLabelHTML': 'ReduxFormField'
-    'rightLabelHTML': 'Seeder:Redux'
-    'body': """
-        <DateTimepicker
-          name="${1:fieldName}"
-          label="${2:Placeholder Label}"
-          errorLabel="${3:Error Label} "
-          showTime={${4:timeBoolean}}
-          validate={[${5:validations}]}
         />
     """
   'Sakha:ReduxForm:FormSubmit':
@@ -122,7 +77,6 @@
         import PropTypes from 'prop-types';
         import { connect } from 'react-redux';
         import { bindActionCreators } from 'redux';
-
         class ${1:Class} extends Component {
           constructor(props) {
             super(props);
@@ -136,7 +90,6 @@
             );
           }
         }
-
         function mapStateToProps({}){
           return {};
         }
@@ -152,7 +105,6 @@
     "rightLabelHTML": "Seeder:React"
     'body': """
         import React, { Component } from 'react';
-
         export default class ${1:Class} extends Component {
           render() {
             return (
@@ -170,7 +122,6 @@
     "rightLabelHTML": "Seeder:React"
     'body': """
         import React from 'react';
-
         const ${1:ComponentName} = (${2:props}) => {
           return (
             <div className="${3:className}">
@@ -178,6 +129,5 @@
             </div>
           );
         }
-
         export default ${1:ComponentName};
     """
